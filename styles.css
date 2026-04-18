@@ -1,0 +1,195 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8f7;
+    background-size: cover;
+    background-position: center;
+}
+
+.contenedorServicios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+.precio{
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #2c7a7b;
+}
+
+button {
+    background: linear-gradient(135deg, #2c7a7b, #38b2ac);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.card button:hover {
+    background-color: #245e5f;
+}
+
+footer {
+    text-align: left;
+    padding: 20px;
+    background-color: #2c7a7b;
+    color: white;
+    position: relative;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+}
+
+.header-contenido {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+
+header {
+    background: 
+        linear-gradient(rgba(44,122,123,0.8), rgba(56,178,172,0.8)),
+        url('Imagenes/logo.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+header p {
+    margin: 5px 0;
+    opacity: 0.9;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    margin: auto;
+    max-width: 1200px;
+}
+
+fieldset {
+    border: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin: 10px 0;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 20px;
+    background: white;
+    color: #2c7a7b;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    align-self: center;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.confianza {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #2c7a7b;
+}
+
+.beneficio {
+    font-size: 0.9em;
+    color: #38b2ac;
+}
+
+.precio {
+    font-size: 1.3em;
+}
+
+form button {
+    margin-top: 15px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-contenido div h2 {
+    margin-bottom: 10px;
+}
+
+.footer-contenido a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-contenido a:hover {
+    text-decoration: underline;
+}
