@@ -2,32 +2,34 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Renew Fitness & Spa</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
             <div class="header-contenido">
-            <h1>Renueva tu cuerpo y tu piel</h1>
-            <p>Servicios profesionales para tu bienestar</p>
-            <a href="#servicios" class="cta">Ver servicios</a>
+                <h1>Renueva tu cuerpo y tu piel</h1>
+                <p>Servicios profesionales para tu bienestar</p>
+                <a href="#servicios" class="cta">Ver servicios</a>
             </div>
         </header>
 
-        <section class="confianza">
+        <section class="confianza" aria-label="Ventajas">
             <p>✔ Atención profesional</p>
             <p>✔ Equipos especializados</p>
             <p>✔ Resultados visibles</p>
         </section>
 
         <main>
-            <section id="servicios">
-                <h2>Nuestros Servicios</h2>
+            <section id="servicios" aria-labelledby="tituloServicios">
+                <h2 id="tituloServicios">Nuestros Servicios</h2>
                 <div class="contenedorServicios">
+
                     <div class="card">
                         <img src="Imagenes/camilla.webp" alt="Camilla Masajeadora">
                         <h3>Camilla Masajeadora</h3>
-                        <p>Relajacion y alivio muscular</p>
+                        <p>Relajación y alivio muscular</p>
                         <span class="precio">Q. 50.00</span>
                         <button onclick="seleccionarServicio('camilla')">Reservar</button>
                     </div>
@@ -35,7 +37,7 @@
                     <div class="card">
                         <img src="Imagenes/silla.webp" alt="Silla Masajeadora">
                         <h3>Silla Masajeadora</h3>
-                        <p>Relajacion y alivio muscular</p>
+                        <p>Relajación y alivio muscular</p>
                         <span class="precio">Q. 50.00</span>
                         <button onclick="seleccionarServicio('silla')">Reservar</button>
                     </div>
@@ -43,7 +45,7 @@
                     <div class="card">
                         <img src="Imagenes/detox.webp" alt="Detox">
                         <h3>Detox</h3>
-                        <p>Eliminacion de toxinas del cuerpo</p>
+                        <p>Eliminación de toxinas del cuerpo</p>
                         <span class="precio">Q. 50.00</span>
                         <button onclick="seleccionarServicio('detox')">Reservar</button>
                     </div>
@@ -59,102 +61,101 @@
                     <div class="card">
                         <img src="Imagenes/tatuaje.webp" alt="Removimiento de tatuajes">
                         <h3>Removimiento de tatuajes</h3>
-                        <p>Eliminacion de tatuajes no deseados</p>
+                        <p>Eliminación de tatuajes no deseados</p>
                         <span class="precio">Q. 75.00</span>
                         <button onclick="seleccionarServicio('removimiento')">Reservar</button>
                     </div>
 
-                </div><br>
+                </div>
             </section>
-            
-            <section id="reservaServicio">
+
+            <section id="reservaServicio" aria-labelledby="legendReserva">
                 <fieldset>
-                    <legend>Reserva tu servicio</legend>
-                    <form action="" method="get">
-                        <label for="servicio">
-                            Escoja su servicio de preferencia:
-                            <select name="servicio" id="servicio">
-                                <option value="" selected>--Seleccione un servicio--</option>
-                                <option value="camilla">Camilla Masajeadora</option>
-                                <option value="silla">Silla Masajeadora</option>
-                                <option value="detox">Detox</option>
-                                <option value="facial">Facial</option>
-                                <option value="removimiento">Removimiento de tatuajes</option>
-                            </select>
-                        </label>
-                        <label for="nombre">
-                            Nombre Completo:
-                            <input type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" required>
-                        </label>
-                        <label for="telefono">
-                            Telefono:
-                            <input type="tel" name="telefono" id="telefono" placeholder="Ingrese su Telefono" required>
-                        </label>
-                        <label for="fecha">
-                            Fecha:
-                            <input type="date" id="fecha" name="fecha" required>
-                        </label>
-                        <label for="hora">
-                            Hora:
-                            <input type="time" id="hora" name="hora" required>
-                        </label>
-                        <button type="button" onclick="enviarWhatsApp()">Enviar Reserva por WhatsApp</button>
-                    </form>
+                    <legend id="legendReserva">Reserva tu servicio</legend>
+                    <label for="servicio">
+                        Escoja su servicio de preferencia:
+                        <select name="servicio" id="servicio">
+                            <option value="" selected>--Seleccione un servicio--</option>
+                            <option value="camilla">Camilla Masajeadora</option>
+                            <option value="silla">Silla Masajeadora</option>
+                            <option value="detox">Detox</option>
+                            <option value="facial">Facial</option>
+                            <option value="removimiento">Removimiento de tatuajes</option>
+                        </select>
+                    </label>
+                    <label for="nombre">
+                        Nombre Completo:
+                        <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" required>
+                    </label>
+                    <label for="telefono">
+                        Teléfono:
+                        <input type="tel" name="telefono" id="telefono" placeholder="Ingrese su teléfono" required>
+                    </label>
+                    <label for="fecha">
+                        Fecha:
+                        <input type="date" id="fecha" name="fecha" required>
+                    </label>
+                    <label for="hora">
+                        Hora:
+                        <input type="time" id="hora" name="hora" required>
+                    </label>
+                    <button type="button" onclick="enviarWhatsApp()">Enviar Reserva por WhatsApp</button>
                 </fieldset>
             </section>
         </main>
-        
+
         <footer>
             <div class="footer-contenido">
                 <div>
                     <address>
                         <h2>Contacto</h2>
-                        <p>Telefono:<a href="tel:58577479"> 58547479</a></p>
-                        <p>Correo:<a href="mailto:clinicarenewspa@gmail.com"> clinicarenewspa@gmail.com</a></p>
+                        <p>Teléfono: <a href="tel:58547479">58547479</a></p>
+                        <p>Correo: <a href="mailto:clinicarenewspa@gmail.com">clinicarenewspa@gmail.com</a></p>
                     </address>
                 </div>
-                
+
                 <div>
                     <h2>Redes Sociales</h2>
-                    <p>Instagram cede Puerto Rico: <a href="https://www.instagram.com/renew_fys/" target="_blank">renew_fys</a></p>
-                    <p>instagram cede Guatemala: <a href="https://www.instagram.com/renewfys/" target="_blank">renewfys</a></p>
-                    <p>Facebook: <a href="https://www.facebook.com/RenewFitnessSpa/" target="_blank">Renew Fitness & Spa</a></p>
+                    <p>Instagram Puerto Rico: <a href="https://www.instagram.com/renew_fys/" target="_blank" rel="noopener">renew_fys</a></p>
+                    <p>Instagram Guatemala: <a href="https://www.instagram.com/renewfys/" target="_blank" rel="noopener">renewfys</a></p>
+                    <p>Facebook: <a href="https://www.facebook.com/RenewFitnessSpa/" target="_blank" rel="noopener">Renew Fitness & Spa</a></p>
                 </div>
 
                 <div>
                     <h2>Ubicación</h2>
-                    <p>Direccion: <a href="https://www.google.com/maps/place/SPA+RENEW/@14.6376966,-90.5180411,17z/data=!3m1!4b1!4m6!3m5!1s0x8589a399f352e09d:0x68806c5d911d9547!8m2!3d14.6376966!4d-90.5154662!16s%2Fg%2F11fl4f1n1w?authuser=1&entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Edificio Herrera 5ta Avenida 11-70 Zona 1 Local SK, Guatemala</a></p>
-                </div>    
+                    <p><a href="https://www.google.com/maps/place/SPA+RENEW/@14.6376966,-90.5180411,17z/data=!3m1!4b1!4m6!3m5!1s0x8589a399f352e09d:0x68806c5d911d9547!8m2!3d14.6376966!4d-90.5154662!16s%2Fg%2F11fl4f1n1w?authuser=1&entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Edificio Herrera, 5ta Avenida 11-70, Zona 1, Local SK, Guatemala</a></p>
+                </div>
             </div>
         </footer>
 
         <script>
             function seleccionarServicio(servicio) {
-            document.getElementById("servicio").value = servicio;
-            location.href = "#reservaServicio";
+                document.getElementById("servicio").value = servicio;
+                location.href = "#reservaServicio";
             }
 
             function enviarWhatsApp() {
-                let servicio = document.getElementById("servicio").value;
-                let nombre = document.getElementById("nombre").value;
-                let telefono = document.getElementById("telefono").value;
-                let fecha = document.getElementById("fecha").value;
-                let hora = document.getElementById("hora").value;
+                const servicio  = document.getElementById("servicio").value;
+                const nombre    = document.getElementById("nombre").value.trim();
+                const telefono  = document.getElementById("telefono").value.trim();
+                const fecha     = document.getElementById("fecha").value;
+                const hora      = document.getElementById("hora").value;
 
-
-                if (servicio === "" || nombre === "" || telefono === "" || fecha === "" || hora === "") {
-                alert("Por favor completa todos los campos");
-                return;
+                if (!servicio || !nombre || !telefono || !fecha || !hora) {
+                    alert("Por favor completa todos los campos");
+                    return;
                 }
 
-                let select = document.getElementById("servicio");
-                let servicioTexto = select.options[select.selectedIndex].text;
-                let mensaje = `Hola, mi nombre es ${nombre}. 
-Me gustaría agendar una cita para el servicio de ${servicioTexto}. 
-Fecha: ${fecha} 
-Hora: ${hora} 
+                const select       = document.getElementById("servicio");
+                const servicioTexto = select.options[select.selectedIndex].text;
+
+                const mensaje = `Hola, mi nombre es ${nombre}.
+Me gustaría agendar una cita para el servicio de ${servicioTexto}.
+Fecha: ${fecha}
+Hora: ${hora}
 Teléfono: ${telefono}.`;
-                let url = "https://wa.me/50259296129?text=" + encodeURIComponent(mensaje);
+
+                const url = "https://wa.me/50259296129?text=" + encodeURIComponent(mensaje);
                 window.open(url, "_blank");
             }
         </script>
