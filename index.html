@@ -72,6 +72,14 @@
             <section id="reservaServicio" aria-labelledby="legendReserva">
                 <fieldset>
                     <legend id="legendReserva">Reserva tu servicio</legend>
+                    <label id="sede">
+                        Sede:
+                        <select name="sede" id="sede">
+                            <option value="" selected>--Seleccione una sede--</option>
+                            <option value="guatemala">Guatemala</option>
+                            <option value="puertorico">Puerto Rico</option>
+                        </select>
+                    </label>
                     <label for="servicio">
                         Escoja su servicio de preferencia:
                         <select name="servicio" id="servicio">
@@ -135,13 +143,24 @@
             }
 
             function enviarWhatsApp() {
+                const sede =document.getElementById("sede").value;
                 const servicio  = document.getElementById("servicio").value;
                 const nombre    = document.getElementById("nombre").value.trim();
                 const telefono  = document.getElementById("telefono").value.trim();
                 const fecha     = document.getElementById("fecha").value;
                 const hora      = document.getElementById("hora").value;
 
-                if (!servicio || !nombre || !telefono || !fecha || !hora) {
+                let numeroWhatsApp;
+                if (sede ==="guatemala") {
+                    numeroWhatsApp = "50259296129";
+                } else if (sede === "puertorico") {
+                    numeroWhatsApp = "50296129";
+                } else {
+                    alert("Por favor selecciona una sede válida");
+                    return;
+                }
+
+                if (!sede || !servicio || !nombre || !telefono || !fecha || !hora) {
                     alert("Por favor completa todos los campos");
                     return;
                 }
@@ -155,7 +174,7 @@ Fecha: ${fecha}
 Hora: ${hora}
 Teléfono: ${telefono}.`;
 
-                const url = "https://wa.me/50259296129?text=" + encodeURIComponent(mensaje);
+                const url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(mensaje);
                 window.open(url, "_blank");
             }
         </script>
