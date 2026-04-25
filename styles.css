@@ -10,6 +10,10 @@ body {
     background-color: #f0f8f7;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* ===== HEADER ===== */
 header {
     background:
