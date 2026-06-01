@@ -26,7 +26,6 @@
             <section id="servicios" aria-labelledby="tituloServicios">
                 <h2 id="tituloServicios">Nuestros Servicios</h2>
                 <div class="contenedorServicios">
-
                     <div class="card">
                         <img src="Imagenes/camilla.webp" alt="Camilla Masajeadora">
                         <h3>Camilla Masajeadora</h3>
@@ -66,9 +65,89 @@
                         <span class="precio">Q. 75.00</span>
                         <button onclick="seleccionarServicio('removimiento')">Reservar</button>
                     </div>
-
                 </div>
             </section>
+
+            <!-- ===== SECCIÓN CARRUSEL DE CASOS ===== -->
+            <section id="casos" aria-labelledby="tituloCasos">
+                <h2 id="tituloCasos">Casos Tratados</h2>
+                <p class="casos-subtitulo">Resultados reales de nuestros pacientes</p>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+
+                        <div class="carousel-slide">
+                            <img src="Imagenes/Hongo1.jpeg" alt="Caso 1 - Tratamiento de uñas con hongos" class="slide-img">
+                            <div class="slide-caption">
+                                <strong>Caso 1 — Tratamiento de uñas</strong>
+                                <span>Onicomicosis avanzada</span>
+                                <span class="slide-tag">Antes</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="Imagenes/Hongo2.jpeg" alt="Caso 2 - Tratamiento de uñas con hongos" class="slide-img">
+                            <div class="slide-caption">
+                                <strong>Caso 2 — Tratamiento de uñas</strong>
+                                <span>Onicomicosis severa</span>
+                                <span class="slide-tag">Antes</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="Imagenes/Hongo3.jpeg" alt="Caso 3 - Tratamiento de uñas con hongos" class="slide-img">
+                            <div class="slide-caption">
+                                <strong>Caso 3 — Tratamiento de uñas</strong>
+                                <span>Infección bilateral</span>
+                                <span class="slide-tag">Antes</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="Imagenes/Hongo4.jpeg" alt="Caso 4 - Tratamiento de uñas con hongos" class="slide-img">
+                            <div class="slide-caption">
+                                <strong>Caso 4 — Tratamiento de uñas</strong>
+                                <span>Onicomicosis crónica</span>
+                                <span class="slide-tag">Antes</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="Imagenes/Hongo5.jpeg" alt="Caso 5 - Tratamiento de uñas con hongos" class="slide-img">
+                            <div class="slide-caption">
+                                <strong>Caso 5 — Tratamiento de uñas</strong>
+                                <span>Infección leve, diagnóstico temprano</span>
+                                <span class="slide-tag">Antes</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="Imagenes/Hongo6.jpeg" alt="Caso 6 - Tratamiento de uñas con hongos" class="slide-img">
+                            <div class="slide-caption">
+                                <strong>Caso 6 — Tratamiento de uñas</strong>
+                                <span>Múltiples uñas afectadas</span>
+                                <span class="slide-tag">Antes</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="Imagenes/Hongo7.jpeg" alt="Caso 7 - Tratamiento de uñas con hongos" class="slide-img">
+                            <div class="slide-caption">
+                                <strong>Caso 7 — Tratamiento de uñas</strong>
+                                <span>Infección severa con decoloración</span>
+                                <span class="slide-tag">Antes</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="carousel-btn carousel-btn-prev" onclick="carouselMover(-1)" aria-label="Caso anterior">&#8592;</button>
+                    <button class="carousel-btn carousel-btn-next" onclick="carouselMover(1)" aria-label="Caso siguiente">&#8594;</button>
+
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </section>
+            <!-- ===== FIN CARRUSEL ===== -->
 
             <section id="reservaServicio" aria-labelledby="legendReserva">
                 <fieldset>
@@ -138,13 +217,14 @@
         </footer>
 
         <script>
+            /* ===== FORMULARIO WHATSAPP ===== */
             function seleccionarServicio(servicio) {
                 document.getElementById("servicio").value = servicio;
                 location.href = "#reservaServicio";
             }
 
             function enviarWhatsApp() {
-                const sede =document.getElementById("sede").value;
+                const sede      = document.getElementById("sede").value;
                 const servicio  = document.getElementById("servicio").value;
                 const nombre    = document.getElementById("nombre").value.trim();
                 const telefono  = document.getElementById("telefono").value.trim();
@@ -152,7 +232,7 @@
                 const hora      = document.getElementById("hora").value;
 
                 let numeroWhatsApp;
-                if (sede ==="guatemala") {
+                if (sede === "guatemala") {
                     numeroWhatsApp = "50259296129";
                 } else if (sede === "puertorico") {
                     numeroWhatsApp = "50296129";
@@ -166,7 +246,7 @@
                     return;
                 }
 
-                const select       = document.getElementById("servicio");
+                const select        = document.getElementById("servicio");
                 const servicioTexto = select.options[select.selectedIndex].text;
 
                 const mensaje = `Hola, mi nombre es ${nombre}.
@@ -178,6 +258,67 @@ Teléfono: ${telefono}.`;
                 const url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(mensaje);
                 window.open(url, "_blank");
             }
+
+            /* ===== CARRUSEL DE CASOS ===== */
+            (function () {
+                const TOTAL     = 7;
+                const INTERVALO = 5000;
+                let indice      = 0;
+                let timer;
+
+                const track = document.getElementById("carouselTrack");
+                const dotsEl = document.getElementById("carouselDots");
+
+                // Crear puntos de navegación
+                for (let i = 0; i < TOTAL; i++) {
+                    const dot = document.createElement("button");
+                    dot.className = "carousel-dot" + (i === 0 ? " activo" : "");
+                    dot.setAttribute("aria-label", "Ver caso " + (i + 1));
+                    dot.addEventListener("click", function () { irA(i); reiniciarTimer(); });
+                    dotsEl.appendChild(dot);
+                }
+
+                function actualizarVista() {
+                    track.style.transform = "translateX(-" + indice * 100 + "%)";
+                    document.querySelectorAll(".carousel-dot").forEach(function (d, i) {
+                        d.classList.toggle("activo", i === indice);
+                    });
+                }
+
+                function irA(n) {
+                    indice = (n + TOTAL) % TOTAL;
+                    actualizarVista();
+                }
+
+                function reiniciarTimer() {
+                    clearInterval(timer);
+                    timer = setInterval(function () { irA(indice + 1); }, INTERVALO);
+                }
+
+                // Avance automático
+                timer = setInterval(function () { irA(indice + 1); }, INTERVALO);
+
+                // Exponer función para los botones del HTML
+                window.carouselMover = function (dir) {
+                    irA(indice + dir);
+                    reiniciarTimer();
+                };
+
+                // Soporte táctil (swipe)
+                var startX = null;
+                track.addEventListener("touchstart", function (e) {
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+                track.addEventListener("touchend", function (e) {
+                    if (startX === null) return;
+                    var diff = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 40) {
+                        irA(indice + (diff > 0 ? 1 : -1));
+                        reiniciarTimer();
+                    }
+                    startX = null;
+                }, { passive: true });
+            })();
         </script>
     </body>
 </html>
